@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Engineer's Console phone, light</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;background:#F7F7F4;color:#15171C}
+a{color:#9A5B00}a:hover{color:#7A4800}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F7F4; color: #15171C; font-family: 'Space Grotesk', system-ui, sans-serif; display: flex; flex-direction: column">
+  <nav aria-label="Primary" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px 14px 20px; border-bottom: 1px solid #E1E1DC; font-family: 'JetBrains Mono', monospace; font-size: 14px">
+    <a href="#top" style="color: #15171C; text-decoration: none"><span style="color: #9A5B00">~/</span>rsdubey</a>
+    <div style="display: flex; gap: 6px">
+      <button type="button" aria-label="Switch to dark mode" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #D5D5CF; background: #FFFFFF; color: #15171C; display: flex; align-items: center; justify-content: center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+      </button>
+      <button type="button" aria-label="Open menu" aria-expanded="false" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #D5D5CF; background: #FFFFFF; color: #15171C; display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+    </div>
+  </nav>
+  <section id="top" style="padding: 44px 20px 28px; display: flex; flex-direction: column; gap: 18px">
+    <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #9A5B00">&gt; hello, world. I'm</p>
+    <h1 style="margin: 0; font-size: 48px; line-height: 1; font-weight: 700; letter-spacing: -0.03em">Ravi Shankar Dubey</h1>
+    <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #454A55">Software Engineer, 8+ years in web/SaaS apps and microservices. Angular · TypeScript · Node.js.</p>
+    <div style="display: flex; gap: 10px">
+      <a href="#projects" style="flex-grow: 1; display: flex; align-items: center; justify-content: center; height: 50px; border-radius: 10px; background: #15171C; color: #F7F7F4; text-decoration: none; font-weight: 700; font-size: 15px">View projects</a>
+      <a href="mailto:ravishankar.rsd@gmail.com" style="flex-grow: 1; display: flex; align-items: center; justify-content: center; height: 50px; border-radius: 10px; border: 1px solid #C9C9C2; color: #15171C; text-decoration: none; font-weight: 500; font-size: 15px">Contact</a>
+    </div>
+  </section>
+  <div style="margin: 0 20px; background: #FFFFFF; border: 1px solid #E1E1DC; border-radius: 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.75">
+    <pre style="margin: 0; padding: 16px 18px; color: #2A2E37; white-space: pre-wrap"><span style="color: #7B3FB5">const</span> ravi = {
+  team: <span style="color: #9A5B00">'VCF @ Broadcom'</span>,
+  years: <span style="color: #1F5FBF">8</span>,
+  city: <span style="color: #9A5B00">'Bangalore'</span>,
+};</pre>
+  </div>
+  <section id="about" style="padding: 28px 20px; display: flex; flex-direction: column; gap: 10px">
+    <h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 14px; color: #9A5B00">01 / about</h2>
+    <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #2A2E37">I turn complicated infrastructure workflows into interfaces people can trust.</p>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+---
+import Seo from '../components/Seo.astro';
+import type { PageSeo } from '../data/profile';
+import '../styles/base.scss';
+
+interface Props {
+  seo: PageSeo;
+  design: 'editorial' | 'console';
+  /** Theme used when the visitor has no saved preference. Omit to follow the OS setting. */
+  defaultTheme?: 'light' | 'dark';
+  noindex?: boolean;
+}
+
+const { seo, design, defaultTheme, noindex } = Astro.props;
+const themeColor = design === 'console' ? { light: '#f7f7f4', dark: '#0f1115' } : { light: '#f6f3ee', dark: '#1a1816' };
+---
+<!doctype html>
+<html lang="en" data-design={design} data-default-theme={defaultTheme}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // Runs before first paint so the saved theme never flashes.
+      (() => {
+        const root = document.documentElement;
+        root.classList.add('js');
+        let saved = null;
+        try { saved = localStorage.getItem('theme'); } catch {}
+        const system = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        root.dataset.theme = saved === 'light' || saved === 'dark' ? saved : root.dataset.defaultTheme || system;
+      })();
+    </script>
+    <Seo seo={seo} noindex={noindex} />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content={themeColor.light} />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content={themeColor.dark} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <script>
+      const root = document.documentElement;
+
+      const syncToggles = () => {
+        const dark = root.dataset.theme === 'dark';
+        document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((button) => {
+          button.setAttribute('aria-pressed', String(dark));
+        });
+      };
+
+      document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          root.dataset.theme = next;
+          try {
+            localStorage.setItem('theme', next);
+          } catch {
+            // Storage can be unavailable (private mode); the toggle still works for this visit.
+          }
+          syncToggles();
+        });
+      });
+      syncToggles();
+
+      const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+      const menu = menuButton && document.getElementById(menuButton.getAttribute('aria-controls') ?? '');
+      if (menuButton && menu) {
+        const setOpen = (open: boolean) => {
+          menuButton.setAttribute('aria-expanded', String(open));
+          menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        };
+        menuButton.addEventListener('click', () => setOpen(menuButton.getAttribute('aria-expanded') !== 'true'));
+        menu.addEventListener('click', (event) => {
+          if ((event.target as HTMLElement).closest('a')) setOpen(false);
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+            menuButton.focus();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
