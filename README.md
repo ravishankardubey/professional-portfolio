@@ -1,13 +1,17 @@
 # Ravi Shankar Dubey — portfolio
 
-Source for [ravishankardubey.in](https://ravishankardubey.in). It's a fully static site built with [Astro](https://astro.build), TypeScript and SCSS.
+A fully static personal portfolio built with [Astro](https://astro.build), TypeScript and SCSS, and deployed to GitHub Pages.
+
+**Live site:** https://ravishankardubey.github.io/professional-portfolio/
 
 The same content is shown in two designs:
 
-| Route | Design | Default theme |
+| Design | Live URL | Default theme |
 | --- | --- | --- |
-| `/` | **Editorial**: serif display type, warm paper, terracotta accent | Follows the OS setting |
-| `/console/` | **Console**: grotesk + mono type, code-card hero, amber accent | Dark |
+| **Editorial**: serif display type, warm paper, terracotta accent | [ravishankardubey.github.io/professional-portfolio/](https://ravishankardubey.github.io/professional-portfolio/) | Follows the OS setting |
+| **Console**: grotesk + mono type, code-card hero, amber accent | [ravishankardubey.github.io/professional-portfolio/console/](https://ravishankardubey.github.io/professional-portfolio/console/) | Dark |
+
+Once the custom domain is set up (see [Deploying](#deploying-github-pages)), the same pages will be served from `https://ravishankardubey.in/` and `https://ravishankardubey.in/console/`.
 
 Both have a light/dark toggle (saved per browser), a mobile menu, and links to each other in the footer.
 
