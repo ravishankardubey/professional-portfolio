@@ -7,6 +7,7 @@ import Icon from '../components/Icon.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import { profile } from '../data/profile';
 import { sections } from '../data/sections';
+import { withBase } from '../utils/url';
 
 const featured = profile.projects.filter((project) => project.featured);
 const more = profile.projects.filter((project) => !project.featured);
@@ -15,7 +16,7 @@ const year = new Date().getFullYear();
 <Base seo={profile.seo.home} design="editorial">
   <header class="ed-header">
     <div class="ed-container">
-      <a class="ed-brand" href="/">{profile.name}</a>
+      <a class="ed-brand" href={withBase('/')}>{profile.name}</a>
       <nav class="ed-nav" id="site-nav" aria-label="Primary">
         <ul role="list">
           {sections.map((section) => <li><a href={`#${section.id}`}>{section.label}</a></li>)}
@@ -170,7 +171,7 @@ const year = new Date().getFullYear();
   <footer class="ed-footer">
     <div class="ed-container">
       <span>© {year} {profile.name} · {profile.location}</span>
-      <a href="/console/">Prefer a darker, developer’s cut? View the Console edition <Icon name="arrow" size={16} /></a>
+      <a href={withBase('/console/')}>Prefer a darker, developer’s cut? View the Console edition <Icon name="arrow" size={16} /></a>
     </div>
   </footer>
 </Base>
