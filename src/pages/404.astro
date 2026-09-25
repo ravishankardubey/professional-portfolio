@@ -6,11 +6,12 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import { profile } from '../data/profile';
+import { withBase } from '../utils/url';
 ---
 <Base seo={profile.seo.notFound} design="editorial" noindex>
   <header class="ed-header">
     <div class="ed-container">
-      <a class="ed-brand" href="/">{profile.name}</a>
+      <a class="ed-brand" href={withBase('/')}>{profile.name}</a>
       <ThemeToggle class="ed-icon-button" />
     </div>
   </header>
@@ -20,7 +21,7 @@ import { profile } from '../data/profile';
       <h1>This page wandered off.</h1>
       <p class="ed-hero__intro">The link may be broken or the page may have moved.</p>
       <div class="ed-hero__actions">
-        <a class="ed-button ed-button--solid" href="/">Back to the portfolio <Icon name="arrow" /></a>
+        <a class="ed-button ed-button--solid" href={withBase('/')}>Back to the portfolio <Icon name="arrow" /></a>
       </div>
     </div></div>
   </main>

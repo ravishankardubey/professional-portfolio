@@ -53,13 +53,27 @@ src/
   components/            ← Seo, Icon, ThemeToggle
   pages/index.astro      ← Editorial design
   pages/console/         ← Console design
-  pages/404.astro
+  pages/404.astro, robots.txt.ts
   styles/                ← base.scss, editorial.scss, console.scss, _mixins.scss
-public/                  ← favicon, OG images, robots.txt
+public/                  ← favicon, OG images
 scripts/generate-og.mjs  ← renders the OG images
 design/                  ← design mockups (reference only, never deployed)
 ```
 
-## Deploying
+## Deploying (GitHub Pages)
 
-`npm run build` outputs a plain static site in `dist/`, which works on any static host (Netlify, Vercel, Cloudflare Pages, GitHub Pages). The canonical domain is set by `site` in `astro.config.mjs` and in `public/robots.txt`.
+`.github/workflows/deploy.yml` builds the site on every pull request (as a check) and deploys it to GitHub Pages on every push to `main`. It asks Pages for its public URL and builds to match, so links, canonical URLs, the sitemap and `robots.txt` stay correct whether the site is served from the custom domain or from `https://ravishankardubey.github.io/professional-portfolio/`.
+
+### One-time setup
+
+1. **Turn on Pages:** go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+2. **Run the first deploy:** go to **Actions → Build and deploy to GitHub Pages → Run workflow** (or push to `main`). The site goes live at `https://ravishankardubey.github.io/professional-portfolio/`.
+3. **Point `ravishankardubey.in` at it (optional).**
+   1. At your domain registrar, replace the existing records for the apex domain `ravishankardubey.in` with these four `A` records (`@`): `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`. Optionally add `AAAA` records `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153` and `2606:50c0:8003::153`.
+   2. Add a `CNAME` record for `www` pointing to `ravishankardubey.github.io`.
+   3. In **Settings → Pages → Custom domain**, enter `ravishankardubey.in` and save. Once the DNS check passes, tick **Enforce HTTPS**.
+   4. Re-run the workflow so the build picks up the domain.
+
+   It's worth verifying the domain first under **GitHub → Settings (your account) → Pages → Verified domains**, which stops anyone else from claiming it on GitHub.
+
+`npm run build` also works locally or on any other static host (Netlify, Vercel, Cloudflare Pages). Set `SITE_URL` and `BASE_PATH` if the site isn't served from the root of `ravishankardubey.in`.

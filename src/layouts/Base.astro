@@ -1,6 +1,7 @@
 ---
 import Seo from '../components/Seo.astro';
 import type { PageSeo } from '../data/profile';
+import { withBase } from '../utils/url';
 import '../styles/base.scss';
 
 interface Props {
@@ -34,9 +35,9 @@ const themeColor = design === 'console' ? { light: '#f7f7f4', dark: '#0f1115' } 
     <meta name="theme-color" media="(prefers-color-scheme: light)" content={themeColor.light} />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content={themeColor.dark} />
     <meta name="color-scheme" content="light dark" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
+    <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
