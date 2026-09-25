@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Engineer's Console direction</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;background:#0F1115;color:#E7E9EE}
+a{color:#F5A524}a:hover{color:#FFC35C}
+</style>
+</helmet>
+<div style="width: 1440px; height: 2280px; box-sizing: border-box; background: #0F1115; color: #E7E9EE; font-family: 'Space Grotesk', system-ui, sans-serif; display: flex; flex-direction: column">
+  <nav aria-label="Primary" style="display: flex; justify-content: space-between; align-items: center; padding: 24px 96px; border-bottom: 1px solid #232833; font-family: 'JetBrains Mono', monospace; font-size: 14px">
+    <a href="#top" style="color: #E7E9EE; text-decoration: none"><span style="color: #F5A524">~/</span>rsdubey</a>
+    <div style="display: flex; gap: 32px; align-items: center">
+      <a href="#about" style="color: #9AA3B2; text-decoration: none">01 about</a>
+      <a href="#experience" style="color: #9AA3B2; text-decoration: none">02 experience</a>
+      <a href="#projects" style="color: #9AA3B2; text-decoration: none">03 projects</a>
+      <a href="#skills" style="color: #9AA3B2; text-decoration: none">04 skills</a>
+      <a href="#contact" style="color: #9AA3B2; text-decoration: none">05 contact</a>
+      <button type="button" aria-label="Switch to light mode" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #2E3441; background: #171A21; color: #E7E9EE; display: flex; align-items: center; justify-content: center; cursor: pointer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+    </div>
+  </nav>
+
+  <section id="top" style="padding: 112px 96px 88px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 64px; align-items: center">
+    <div style="display: flex; flex-direction: column; gap: 24px">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 15px; color: #F5A524">&gt; hello, world. I'm</p>
+      <h1 style="margin: 0; font-size: 84px; line-height: 1; font-weight: 700; letter-spacing: -0.03em">Ravi Shankar<br>Dubey</h1>
+      <p style="margin: 0; font-size: 22px; line-height: 1.5; color: #B6BDC9; max-width: 620px">Software Engineer building web &amp; SaaS apps and microservices for 8+ years. Angular, TypeScript and Node.js — shipped at VMware by Broadcom.</p>
+      <div style="display: flex; gap: 14px; margin-top: 8px">
+        <a href="#projects" style="display: inline-flex; align-items: center; height: 50px; padding: 0 24px; border-radius: 10px; background: #F5A524; color: #0F1115; text-decoration: none; font-weight: 700; font-size: 16px">View projects</a>
+        <a href="mailto:ravishankar.rsd@gmail.com" style="display: inline-flex; align-items: center; height: 50px; padding: 0 24px; border-radius: 10px; border: 1px solid #2E3441; color: #E7E9EE; text-decoration: none; font-weight: 500; font-size: 16px">Contact me</a>
+      </div>
+    </div>
+    <div style="background: #171A21; border: 1px solid #232833; border-radius: 14px; overflow: hidden; font-family: 'JetBrains Mono', monospace; font-size: 15px; line-height: 1.8">
+      <div style="display: flex; gap: 8px; padding: 14px 18px; border-bottom: 1px solid #232833">
+        <span style="width: 12px; height: 12px; border-radius: 6px; background: #3A4150"></span>
+        <span style="width: 12px; height: 12px; border-radius: 6px; background: #3A4150"></span>
+        <span style="width: 12px; height: 12px; border-radius: 6px; background: #3A4150"></span>
+        <span style="margin-left: 12px; font-size: 13px; color: #8C95A5">profile.ts</span>
+      </div>
+      <pre style="margin: 0; padding: 22px 24px; color: #D4D9E2; white-space: pre-wrap"><span style="color: #C792EA">export const</span> ravi = {
+  role: <span style="color: #F5A524">'Software Engineer'</span>,
+  team: <span style="color: #F5A524">'VCF @ Broadcom'</span>,
+  years: <span style="color: #82AAFF">8</span>,
+  city: <span style="color: #F5A524">'Bangalore'</span>,
+  stack: [<span style="color: #F5A524">'Angular'</span>, <span style="color: #F5A524">'TS'</span>, <span style="color: #F5A524">'Node'</span>],
+  openTo: <span style="color: #F5A524">'interesting problems'</span>,
+};</pre>
+    </div>
+  </section>
+
+  <section id="about" style="padding: 64px 96px; border-top: 1px solid #232833; display: grid; grid-template-columns: 280px 1fr; gap: 48px">
+    <h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 16px; color: #F5A524">01 / about</h2>
+    <p style="margin: 0; font-size: 24px; line-height: 1.55; color: #D4D9E2; max-width: 880px">I turn complicated infrastructure workflows into interfaces people can trust. Today that means the UIs that size, deploy and operate VMware Cloud Foundation; before that, co-founding Perceived and growing METAcademy from 1K to 10K users. B.Tech CSE, GLA University.</p>
+  </section>
+
+  <section id="experience" style="padding: 64px 96px; border-top: 1px solid #232833; display: grid; grid-template-columns: 280px 1fr; gap: 48px">
+    <h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 16px; color: #F5A524">02 / experience</h2>
+    <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+      <li style="background: #171A21; border: 1px solid #232833; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8C95A5">2022.09 → now</span>
+        <h3 style="margin: 0; font-size: 21px; font-weight: 700">VMware by Broadcom</h3>
+        <span style="font-size: 15px; color: #F5A524">R&amp;D Engineer Software 3 · VCF</span>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B6BDC9">Sizer UI refactor, VCF Ops Console, SDDC Manager pluggable workflows, UI e2e pipeline.</p>
+      </li>
+      <li style="background: #171A21; border: 1px solid #232833; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8C95A5">2021 → 2022</span>
+        <h3 style="margin: 0; font-size: 21px; font-weight: 700">Perceived</h3>
+        <span style="font-size: 15px; color: #F5A524">Co-Founder &amp; Head of Engineering</span>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B6BDC9">Perceiv.io and METAcademy (web + Android), 1K → 10K users; 3D, VR and simulation POCs.</p>
+      </li>
+      <li style="background: #171A21; border: 1px solid #232833; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8C95A5">2020 → 2021</span>
+        <h3 style="margin: 0; font-size: 21px; font-weight: 700">Infrrd</h3>
+        <span style="font-size: 15px; color: #F5A524">Software Engineer – UI</span>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B6BDC9">OCR product and real-estate services.</p>
+      </li>
+      <li style="background: #171A21; border: 1px solid #232833; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8C95A5">2017 → 2020</span>
+        <h3 style="margin: 0; font-size: 21px; font-weight: 700">Mindtree</h3>
+        <span style="font-size: 15px; color: #F5A524">Software Engineer</span>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B6BDC9">Airline order-management SaaS, JSP → Angular migration. Outstanding Performer 2018–19.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="projects" style="padding: 64px 96px; border-top: 1px solid #232833; display: grid; grid-template-columns: 280px 1fr; gap: 48px">
+    <h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 16px; color: #F5A524">03 / projects</h2>
+    <div style="display: flex; flex-direction: column">
+      <a href="#projects" style="display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; padding: 24px 0; border-bottom: 1px solid #232833; color: #E7E9EE; text-decoration: none">
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 26px; font-weight: 700">Sizer UI — VMC on AWS</span><span style="font-size: 16px; color: #B6BDC9">Led the move to a loosely coupled architecture.</span></div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8C95A5">angular · ts</span>
+      </a>
+      <a href="#projects" style="display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; padding: 24px 0; border-bottom: 1px solid #232833; color: #E7E9EE; text-decoration: none">
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 26px; font-weight: 700">SDDC Manager — pluggable workflows</span><span style="font-size: 16px; color: #B6BDC9">A module teams extend to ship new multi-step flows.</span></div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8C95A5">angular · nx</span>
+      </a>
+      <a href="#projects" style="display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; padding: 24px 0; border-bottom: 1px solid #232833; color: #E7E9EE; text-decoration: none">
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 26px; font-weight: 700">METAcademy</span><span style="font-size: 16px; color: #B6BDC9">Web + Android learning platform, 1K → 10K users.</span></div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8C95A5">angular · node · mongo</span>
+      </a>
+      <a href="#projects" style="display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; padding: 24px 0; color: #E7E9EE; text-decoration: none">
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 26px; font-weight: 700">3D / VR simulation POCs</span><span style="font-size: 16px; color: #B6BDC9">Interactive prototypes for Perceived.</span></div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8C95A5">three.js</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="skills" style="padding: 64px 96px; border-top: 1px solid #232833; display: grid; grid-template-columns: 280px 1fr; gap: 48px">
+    <h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 16px; color: #F5A524">04 / skills</h2>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 15px">
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">Angular</li>
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">TypeScript</li>
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">JavaScript</li>
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">Node.js</li>
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">Express</li>
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">React</li>
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">Three.js</li>
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">MongoDB</li>
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">AWS</li>
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">Sass</li>
+      <li style="padding: 10px 16px; background: #171A21; border: 1px solid #2E3441; border-radius: 8px">Nx</li>
+    </ul>
+  </section>
+
+  <footer id="contact" style="margin-top: auto; padding: 80px 96px; border-top: 1px solid #232833; display: flex; flex-direction: column; gap: 20px">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #F5A524">05 / contact</span>
+    <a href="mailto:ravishankar.rsd@gmail.com" style="font-size: 64px; font-weight: 700; letter-spacing: -0.02em; color: #E7E9EE">ravishankar.rsd@gmail.com</a>
+    <div style="display: flex; gap: 28px; font-family: 'JetBrains Mono', monospace; font-size: 15px">
+      <a href="https://linkedin.com/in/rsdubey">linkedin.com/in/rsdubey</a>
+      <span style="color: #8C95A5">Bangalore, IN</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2280}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

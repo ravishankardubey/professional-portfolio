@@ -1,0 +1,176 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/instrument-sans';
+import '../styles/editorial.scss';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import { profile } from '../data/profile';
+import { sections } from '../data/sections';
+
+const featured = profile.projects.filter((project) => project.featured);
+const more = profile.projects.filter((project) => !project.featured);
+const year = new Date().getFullYear();
+---
+<Base seo={profile.seo.home} design="editorial">
+  <header class="ed-header">
+    <div class="ed-container">
+      <a class="ed-brand" href="/">{profile.name}</a>
+      <nav class="ed-nav" id="site-nav" aria-label="Primary">
+        <ul role="list">
+          {sections.map((section) => <li><a href={`#${section.id}`}>{section.label}</a></li>)}
+        </ul>
+      </nav>
+      <ThemeToggle class="ed-icon-button" />
+      <button type="button" class="menu-toggle icon-button ed-icon-button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+        <Icon name="menu" size={20} />
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="ed-hero" aria-labelledby="hero-title">
+      <div class="ed-container"><div class="ed-hero__inner">
+        <p class="eyebrow">{profile.role} · {profile.location}</p>
+        <h1 id="hero-title">{profile.headline}</h1>
+        <p class="ed-hero__intro">{profile.intro}</p>
+        <div class="ed-hero__actions">
+          <a class="ed-button ed-button--solid" href="#projects">See selected work <Icon name="arrow" /></a>
+          <a class="ed-button ed-button--ghost" href={`mailto:${profile.contact.email}`}>Get in touch</a>
+        </div>
+      </div></div>
+    </section>
+
+    <section class="ed-section" id="about" aria-labelledby="about-title">
+      <div class="ed-container ed-section__grid">
+        <h2 class="ed-section__title" id="about-title">About</h2>
+        <div>
+          <div class="ed-about">
+            <div class="ed-about__copy">
+              {profile.about.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+            <dl class="ed-facts">
+              {profile.facts.map((fact) => (
+                <div>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div class="ed-subgrid">
+            <div>
+              <h3>Education</h3>
+              <ul role="list">
+                {profile.education.map((item) => (
+                  <li>
+                    {item.degree} — {item.school}
+                    <span class="small">{item.period}{item.note && ` · ${item.note}`}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3>Recognition</h3>
+              <ul role="list">
+                {profile.recognition.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ed-section" id="experience" aria-labelledby="experience-title">
+      <div class="ed-container ed-section__grid">
+        <h2 class="ed-section__title" id="experience-title">Experience</h2>
+        <ol class="ed-timeline" role="list">
+          {profile.experience.map((job) => (
+            <li>
+              <span class="ed-timeline__period">{job.period}</span>
+              <div class="ed-timeline__body">
+                <h3>{job.company}</h3>
+                <div class="ed-timeline__roles">
+                  {job.roles.map((role) => (
+                    <span><strong>{role.title}</strong> · {role.period}{role.note && ` — ${role.note}`}</span>
+                  ))}
+                </div>
+                <p class="ed-timeline__summary">{job.summary}</p>
+                <ul class="ed-timeline__highlights">
+                  {job.highlights.map((highlight) => <li>{highlight}</li>)}
+                </ul>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="ed-section" id="projects" aria-labelledby="projects-title">
+      <div class="ed-container">
+        <h2 class="ed-section__title ed-section__title--spaced" id="projects-title">Selected work</h2>
+        <ul class="ed-projects" role="list">
+          {featured.map((project) => (
+            <li class="ed-card">
+              <span class="eyebrow">{project.org}</span>
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+              <span class="ed-card__stack">{project.stack.join(' · ')}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="ed-more">
+          <h3>More work</h3>
+          <ul role="list">
+            {more.map((project) => (
+              <li>
+                <span class="ed-more__title">
+                  {project.url ? <a href={project.url} rel="noopener">{project.title}<span class="visually-hidden"> (opens external site)</span></a> : project.title}
+                </span>
+                <span class="ed-more__summary">{project.summary}</span>
+                <span class="ed-more__meta">{project.org} · {project.period}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="ed-section" id="skills" aria-labelledby="skills-title">
+      <div class="ed-container ed-section__grid">
+        <h2 class="ed-section__title" id="skills-title">Skills</h2>
+        <div class="ed-skills">
+          {profile.skills.map((group) => (
+            <div>
+              <h3>{group.name}</h3>
+              <ul class="ed-chips" role="list">
+                {group.items.map((skill) => <li>{skill}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="ed-contact" id="contact" aria-labelledby="contact-title">
+      <div class="ed-container">
+        <div>
+          <h2 id="contact-title">Let’s build something thoughtful together.</h2>
+          <p>{profile.contact.pitch}</p>
+          <a class="ed-contact__email" href={`mailto:${profile.contact.email}`}>{profile.contact.email}</a>
+        </div>
+        <ul class="ed-contact__links" role="list">
+          <li><a href={profile.contact.linkedin} rel="me noopener">LinkedIn <Icon name="external" size={16} /></a></li>
+          <li><a href={profile.contact.github} rel="me noopener">GitHub <Icon name="external" size={16} /></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ed-footer">
+    <div class="ed-container">
+      <span>© {year} {profile.name} · {profile.location}</span>
+      <a href="/console/">Prefer a darker, developer’s cut? View the Console edition <Icon name="arrow" size={16} /></a>
+    </div>
+  </footer>
+</Base>

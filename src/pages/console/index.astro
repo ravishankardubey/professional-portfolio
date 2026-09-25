@@ -1,0 +1,164 @@
+---
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/jetbrains-mono';
+import '../../styles/console.scss';
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import { profile, yearsOfExperience } from '../../data/profile';
+import { sections } from '../../data/sections';
+
+const pad = (index: number) => String(index + 1).padStart(2, '0');
+const sectionNumber = (id: string) => pad(sections.findIndex((section) => section.id === id));
+const year = new Date().getFullYear();
+const [firstName, ...rest] = profile.name.split(' ');
+const coreStack = profile.skills[0]?.items.slice(0, 2) ?? [];
+---
+<Base seo={profile.seo.console} design="console" defaultTheme="dark">
+  <header class="cn-header">
+    <div class="cn-container">
+      <a class="cn-brand" href="/console/"><span>~/</span>{profile.handle}</a>
+      <nav class="cn-nav" id="site-nav" aria-label="Primary">
+        <ul role="list">
+          {sections.map((section, index) => (
+            <li><a href={`#${section.id}`}><span>{pad(index)}</span> {section.label.toLowerCase()}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <ThemeToggle class="cn-icon-button" />
+      <button type="button" class="menu-toggle icon-button cn-icon-button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+        <Icon name="menu" size={20} />
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="cn-hero" aria-labelledby="hero-title">
+      <div class="cn-container">
+        <div class="cn-hero__copy">
+          <p class="cn-hero__prompt">&gt; hello, world. I’m</p>
+          <h1 id="hero-title">{firstName} {rest.slice(0, -1).join(' ')}<br />{rest.at(-1)}</h1>
+          <p class="cn-hero__intro">{profile.intro}</p>
+          <div class="cn-hero__actions">
+            <a class="cn-button cn-button--solid" href="#projects">View projects</a>
+            <a class="cn-button cn-button--ghost" href={`mailto:${profile.contact.email}`}>Contact me</a>
+          </div>
+        </div>
+        <figure class="cn-code" aria-label="Profile summary as a TypeScript object">
+          <div class="cn-code__bar" aria-hidden="true"><i></i><i></i><i></i><span>profile.ts</span></div>
+          <pre><code><span class="k">export const</span> ravi = &#123;
+  role: <span class="s">'{profile.role}'</span>,
+  team: <span class="s">'VCF @ Broadcom'</span>,
+  years: <span class="n">{yearsOfExperience}</span>,
+  city: <span class="s">'Bangalore'</span>,
+  stack: [{coreStack.map((skill) => <><span class="s">'{skill}'</span>, </>)}<span class="s">'Node.js'</span>],
+  interests: <span class="s">'{profile.interests.join(', ').toLowerCase()}'</span>,
+&#125;;</code></pre>
+        </figure>
+      </div>
+    </section>
+
+    <section class="cn-section" id="about" aria-labelledby="about-title">
+      <div class="cn-container">
+        <h2 class="cn-section__title" id="about-title">{sectionNumber('about')} / about</h2>
+        <div class="cn-about">
+          {profile.about.map((paragraph) => <p>{paragraph}</p>)}
+          <dl class="cn-kv">
+            <div>
+              <dt>education</dt>
+              {profile.education.map((item) => <dd>{item.degree} — {item.school} ({item.period})</dd>)}
+            </div>
+            <div>
+              <dt>recognition</dt>
+              {profile.recognition.map((item) => <dd>{item}</dd>)}
+            </div>
+            <div>
+              <dt>languages</dt>
+              <dd>English (professional), Hindi (native)</dd>
+            </div>
+            <div>
+              <dt>location</dt>
+              <dd>{profile.location}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="cn-section" id="experience" aria-labelledby="experience-title">
+      <div class="cn-container">
+        <h2 class="cn-section__title" id="experience-title">{sectionNumber('experience')} / experience</h2>
+        <ol class="cn-jobs" role="list">
+          {profile.experience.map((job) => (
+            <li class="cn-job">
+              <span class="cn-job__period">{job.period}</span>
+              <h3>{job.company}</h3>
+              <span class="cn-job__role">{job.roles[0]?.title}</span>
+              {job.roles.length > 1 && (
+                <span class="cn-job__history">prev: {job.roles.slice(1).map((role) => role.title).join(', ')}</span>
+              )}
+              <ul>
+                {job.highlights.map((highlight) => <li>{highlight}</li>)}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="cn-section" id="projects" aria-labelledby="projects-title">
+      <div class="cn-container">
+        <h2 class="cn-section__title" id="projects-title">{sectionNumber('projects')} / projects</h2>
+        <ul class="cn-projects" role="list">
+          {profile.projects.map((project) => (
+            <li>
+              <div>
+                <h3 class="cn-project__title">
+                  {project.url ? <a href={project.url} rel="noopener">{project.title}<span class="visually-hidden"> (opens external site)</span></a> : project.title}
+                </h3>
+                <p class="cn-project__org">{project.org} · {project.period}</p>
+                <p class="cn-project__summary">{project.summary}</p>
+              </div>
+              <span class="cn-project__stack">{project.stack.join(' · ')}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="cn-section" id="skills" aria-labelledby="skills-title">
+      <div class="cn-container">
+        <h2 class="cn-section__title" id="skills-title">{sectionNumber('skills')} / skills</h2>
+        <div class="cn-skills">
+          {profile.skills.map((group) => (
+            <div>
+              <h3>// {group.name.toLowerCase()}</h3>
+              <ul role="list">
+                {group.items.map((skill) => <li>{skill}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cn-contact" id="contact" aria-labelledby="contact-title">
+      <div class="cn-container">
+        <h2 class="cn-section__title" id="contact-title">{sectionNumber('contact')} / contact</h2>
+        <a class="cn-contact__email" href={`mailto:${profile.contact.email}`}>{profile.contact.email}</a>
+        <p class="cn-contact__pitch">{profile.contact.pitch}</p>
+        <ul class="cn-contact__links" role="list">
+          <li><a href={profile.contact.linkedin} rel="me noopener">linkedin <Icon name="external" size={16} /></a></li>
+          <li><a href={profile.contact.github} rel="me noopener">github <Icon name="external" size={16} /></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cn-footer">
+    <div class="cn-container">
+      <span>© {year} {profile.name}</span>
+      <a href="/">cd ../editorial — view the Editorial edition <Icon name="arrow" size={16} /></a>
+    </div>
+  </footer>
+</Base>

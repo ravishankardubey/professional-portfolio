@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+<button type="button" class:list={['icon-button', 'theme-toggle', className]} data-theme-toggle aria-pressed="false">
+  <span class="visually-hidden">Dark mode</span>
+  <Icon name="moon" class="theme-toggle__moon" />
+  <Icon name="sun" class="theme-toggle__sun" />
+</button>

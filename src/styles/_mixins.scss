@@ -1,0 +1,28 @@
+// Breakpoints shared by both designs.
+$sm: 30rem; // 480px
+$md: 48rem; // 768px
+$lg: 64rem; // 1024px
+
+@mixin below-sm {
+  @media (max-width: #{$sm - 0.0625rem}) {
+    @content;
+  }
+}
+
+@mixin below-md {
+  @media (max-width: #{$md - 0.0625rem}) {
+    @content;
+  }
+}
+
+@mixin above-md {
+  @media (min-width: $md) {
+    @content;
+  }
+}
+
+@mixin above-lg {
+  @media (min-width: $lg) {
+    @content;
+  }
+}

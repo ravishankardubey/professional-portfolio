@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Swiss Grid direction</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Archivo',system-ui,sans-serif;background:#FFFFFF;color:#0A0A0A}
+a{color:#1F4FFF}a:hover{color:#1438C4}
+</style>
+</helmet>
+<div style="width: 1440px; height: 2280px; box-sizing: border-box; background: #FFFFFF; color: #0A0A0A; font-family: 'Archivo', system-ui, sans-serif; display: flex; flex-direction: column">
+  <nav aria-label="Primary" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; padding: 24px 80px; align-items: center; font-size: 15px; font-weight: 500">
+    <a href="#top" style="grid-column: span 4; color: #0A0A0A; text-decoration: none; font-weight: 800">RSD</a>
+    <div style="grid-column: span 8; display: flex; justify-content: flex-end; gap: 32px; align-items: center">
+      <a href="#about" style="color: #0A0A0A; text-decoration: none">About</a>
+      <a href="#experience" style="color: #0A0A0A; text-decoration: none">Experience</a>
+      <a href="#projects" style="color: #0A0A0A; text-decoration: none">Projects</a>
+      <a href="#skills" style="color: #0A0A0A; text-decoration: none">Skills</a>
+      <a href="#contact" style="color: #0A0A0A; text-decoration: none">Contact</a>
+      <button type="button" aria-label="Switch to dark mode" style="width: 44px; height: 44px; border: 2px solid #0A0A0A; background: #FFFFFF; color: #0A0A0A; display: flex; align-items: center; justify-content: center; cursor: pointer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+      </button>
+    </div>
+  </nav>
+
+  <section id="top" style="padding: 80px 80px 64px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 40px; border-bottom: 2px solid #0A0A0A">
+    <h1 style="grid-column: span 12; margin: 0; font-size: 168px; line-height: 0.9; font-weight: 800; letter-spacing: -0.045em">Ravi Shankar<br>Dubey<span style="color: #1F4FFF">.</span></h1>
+    <p style="grid-column: span 5; margin: 0; font-size: 26px; line-height: 1.35; font-weight: 500">Software Engineer crafting web &amp; SaaS applications and microservices for 8+ years.</p>
+    <dl style="grid-column: 8 / span 5; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; font-size: 15px">
+      <div><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; color: #555555">Now</dt><dd style="margin: 4px 0 0; font-weight: 500">VMware by Broadcom</dd></div>
+      <div><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; color: #555555">Based</dt><dd style="margin: 4px 0 0; font-weight: 500">Bangalore, India</dd></div>
+      <div><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; color: #555555">Stack</dt><dd style="margin: 4px 0 0; font-weight: 500">Angular · TS · Node.js</dd></div>
+      <div><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; color: #555555">Say hi</dt><dd style="margin: 4px 0 0; font-weight: 500"><a href="mailto:ravishankar.rsd@gmail.com">Email me →</a></dd></div>
+    </dl>
+  </section>
+
+  <section id="about" style="padding: 56px 80px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; border-bottom: 1px solid #D4D4D4">
+    <h2 style="grid-column: span 3; margin: 0; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 14px; text-transform: uppercase">(01) About</h2>
+    <p style="grid-column: 4 / span 8; margin: 0; font-size: 32px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em">I make complex enterprise workflows feel obvious. I've led front-end architecture at VMware, co-founded an ed-tech startup that grew to <span style="color: #1F4FFF">10K users</span>, and been recognised as an Outstanding Performer at Mindtree.</p>
+  </section>
+
+  <section id="experience" style="padding: 56px 80px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; border-bottom: 1px solid #D4D4D4">
+    <h2 style="grid-column: span 3; margin: 0; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 14px; text-transform: uppercase">(02) Experience</h2>
+    <ol style="grid-column: 4 / span 9; list-style: none; margin: 0; padding: 0">
+      <li style="display: grid; grid-template-columns: 2fr 3fr 1fr; gap: 24px; padding: 18px 0; border-top: 2px solid #0A0A0A; font-size: 18px"><strong style="font-weight: 700">VMware by Broadcom</strong><span>R&amp;D Engineer Software 3 — VCF team</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; text-align: right">2022—</span></li>
+      <li style="display: grid; grid-template-columns: 2fr 3fr 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid #D4D4D4; font-size: 18px"><strong style="font-weight: 700">Perceived</strong><span>Co-Founder &amp; Head of Engineering</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; text-align: right">2021—22</span></li>
+      <li style="display: grid; grid-template-columns: 2fr 3fr 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid #D4D4D4; font-size: 18px"><strong style="font-weight: 700">Infrrd</strong><span>Software Engineer – UI</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; text-align: right">2020—21</span></li>
+      <li style="display: grid; grid-template-columns: 2fr 3fr 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid #D4D4D4; border-bottom: 1px solid #D4D4D4; font-size: 18px"><strong style="font-weight: 700">Mindtree</strong><span>Software Engineer</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; text-align: right">2017—20</span></li>
+    </ol>
+  </section>
+
+  <section id="projects" style="padding: 56px 80px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 32px; border-bottom: 1px solid #D4D4D4">
+    <h2 style="grid-column: span 12; margin: 0; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 14px; text-transform: uppercase">(03) Projects</h2>
+    <article style="grid-column: span 6; background: #1F4FFF; color: #FFFFFF; padding: 40px; min-height: 300px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px">VMWARE — 2022—</span>
+      <div style="display: flex; flex-direction: column; gap: 12px"><h3 style="margin: 0; font-size: 44px; font-weight: 800; letter-spacing: -0.02em; line-height: 1">Sizer UI,<br>re-architected</h3><p style="margin: 0; font-size: 18px; line-height: 1.5">Led the VMC on AWS sizer's refactor to a loosely coupled architecture.</p></div>
+    </article>
+    <article style="grid-column: span 6; background: #F2F2F2; padding: 40px; min-height: 300px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px">PERCEIVED — 2021—22</span>
+      <div style="display: flex; flex-direction: column; gap: 12px"><h3 style="margin: 0; font-size: 44px; font-weight: 800; letter-spacing: -0.02em; line-height: 1">METAcademy,<br>1K → 10K users</h3><p style="margin: 0; font-size: 18px; line-height: 1.5; color: #333333">Web + Android learning platform built from zero.</p></div>
+    </article>
+    <article style="grid-column: span 4; border-top: 2px solid #0A0A0A; padding-top: 18px; display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 22px; font-weight: 700">SDDC Manager UI</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #333333">Pluggable workflow module.</p></article>
+    <article style="grid-column: span 4; border-top: 2px solid #0A0A0A; padding-top: 18px; display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 22px; font-weight: 700">VCF Ops Console</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #333333">Operations UI for VMware Cloud Foundation.</p></article>
+    <article style="grid-column: span 4; border-top: 2px solid #0A0A0A; padding-top: 18px; display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 22px; font-weight: 700">UI e2e pipeline</h3><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #333333">End-to-end test automation for VCF UIs.</p></article>
+  </section>
+
+  <section id="skills" style="padding: 56px 80px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px">
+    <h2 style="grid-column: span 3; margin: 0; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 14px; text-transform: uppercase">(04) Skills</h2>
+    <p style="grid-column: 4 / span 9; margin: 0; font-size: 40px; line-height: 1.25; font-weight: 700; letter-spacing: -0.02em">Angular / TypeScript / JavaScript / Node.js / Express / React / Three.js / MongoDB / AWS / Sass / Nx</p>
+  </section>
+
+  <footer id="contact" style="margin-top: auto; padding: 64px 80px; background: #0A0A0A; color: #FFFFFF; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: end">
+    <h2 style="grid-column: span 7; margin: 0; font-size: 96px; font-weight: 800; letter-spacing: -0.04em; line-height: 0.95">Let's talk<span style="color: #6E8BFF">.</span></h2>
+    <div style="grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 12px; font-size: 20px">
+      <a href="mailto:ravishankar.rsd@gmail.com" style="color: #FFFFFF">ravishankar.rsd@gmail.com</a>
+      <a href="https://linkedin.com/in/rsdubey" style="color: #FFFFFF">linkedin.com/in/rsdubey</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2280}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
